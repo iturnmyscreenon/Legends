@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Card from "../Global/Card";
 import Deck from "../Global/Deck";
 import { cardArrayPropTypes } from "../cardPropTypes";
@@ -14,11 +15,15 @@ export default function PlayersSelection({
   draftRound,
   setDraftRound,
 }) {
+  const [parent] = useAutoAnimate();
   return (
     <div className="flex flex-col h-screen justify-center items-center">
       <Deck deck={playerTwoDeck} position="top" />
 
-      <div className="Container flex items-center w-screen overflow-x-scroll h-full xl:justify-center xl:overflow-hidden gap-6">
+      <div
+        ref={parent}
+        className="Container flex items-center w-screen overflow-x-scroll h-full xl:justify-center xl:overflow-hidden gap-6"
+      >
         {characters.map((character) => (
           <Card
             draftRound={draftRound}

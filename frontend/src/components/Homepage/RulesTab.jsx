@@ -2,7 +2,7 @@ import React from "react";
 
 function RulesTab() {
   return (
-    <div className="w-screen h-1/3 flex flex-col justify-between items-center">
+    <div className="w-screen flex flex-col justify-between items-center">
       <h3 className="w-screen text-center text-[#54EB75]">
         {"règles".toUpperCase()}
       </h3>

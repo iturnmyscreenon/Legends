@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
 
 function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
+  const [parent] = useAutoAnimate();
   return (
     <div className="text-yellow-700 h-[20%] xl:w-1/2">
       {position === "bot" && (
@@ -12,7 +14,7 @@ function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
         </div>
       )}
 
-      <div className="grid grid-cols-6 h-[90%] w-full relative">
+      <div ref={parent} className="grid grid-cols-6 h-[90%] w-full relative">
         {deck.map((deckCard) => (
           <MiniCard
             dataDeck={deckCard}
